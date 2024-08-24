@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_Source_Data",
+						"referenceName": "DS_Parent_Source",
 						"type": "DatasetReference",
 						"parameters": {
 							"SubFolderName": {
