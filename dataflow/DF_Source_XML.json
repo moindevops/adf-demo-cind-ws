@@ -23,7 +23,7 @@
 				"     ignoreNoFilesFound: false,",
 				"     validationMode: 'none',",
 				"     namespaces: true,",
-				"     wildcardPaths:[($FileName)]) ~> sourceXML"
+				"     wildcardPaths:['*.xml']) ~> sourceXML"
 			]
 		}
 	}

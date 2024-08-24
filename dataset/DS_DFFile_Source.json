@@ -5,11 +5,6 @@
 			"referenceName": "LS_ADLS",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"filePath": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "Xml",
 		"typeProperties": {
