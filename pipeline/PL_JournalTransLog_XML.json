@@ -63,7 +63,7 @@
 								"waitOnCompletion": true,
 								"parameters": {
 									"folderName": {
-										"value": "@item().name",
+										"value": "@concat('journaltranslog','/','Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'), item().name)",
 										"type": "Expression"
 									}
 								}
