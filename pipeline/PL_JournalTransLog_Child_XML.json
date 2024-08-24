@@ -20,7 +20,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"folderName": {
-								"value": "@concat('journaltranslog','/','Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'), pipeline().parameters.folderName)",
+								"value": "@concat('Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'), pipeline().parameters.folderName)",
 								"type": "Expression"
 							}
 						}
@@ -32,89 +32,6 @@
 						"type": "AzureBlobFSReadSettings",
 						"enablePartitionDiscovery": false
 					}
-				}
-			},
-			{
-				"name": "Loop the Files",
-				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "Get File Metadata",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@activity('Get File Metadata').output.childItems",
-						"type": "Expression"
-					},
-					"isSequential": true,
-					"activities": [
-						{
-							"name": "Copy data1",
-							"type": "Copy",
-							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"source": {
-									"type": "XmlSource",
-									"storeSettings": {
-										"type": "AzureBlobFSReadSettings",
-										"recursive": true,
-										"wildcardFolderPath": {
-											"value": "@item().folderName",
-											"type": "Expression"
-										},
-										"wildcardFileName": "*.xml",
-										"enablePartitionDiscovery": false
-									},
-									"formatSettings": {
-										"type": "XmlReadSettings",
-										"validationMode": "none",
-										"namespaces": true
-									}
-								},
-								"sink": {
-									"type": "JsonSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "JsonWriteSettings"
-									}
-								},
-								"enableStaging": false
-							},
-							"inputs": [
-								{
-									"referenceName": "DS_Source_Data",
-									"type": "DatasetReference",
-									"parameters": {
-										"folderName": {
-											"value": "@concat(item().folderName,item().name)",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "Json1",
-									"type": "DatasetReference"
-								}
-							]
-						}
-					]
 				}
 			}
 		],
