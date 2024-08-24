@@ -17,7 +17,13 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "DS_Source_Data",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"folderName": {
+								"value": "@concat('journaltranslog','/','Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'), pipeline().parameters.folderName)",
+								"type": "Expression"
+							}
+						}
 					},
 					"fieldList": [
 						"childItems"
