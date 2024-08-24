@@ -19,11 +19,33 @@
 						"referenceName": "DS_Source_Data",
 						"type": "DatasetReference"
 					},
-					"fieldList": [],
+					"fieldList": [
+						"childItems"
+					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"enablePartitionDiscovery": false
 					}
+				}
+			},
+			{
+				"name": "Loop the Folders",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Get Folder Metadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get Folder Metadata').output.childItems",
+						"type": "Expression"
+					},
+					"isSequential": true
 				}
 			}
 		],
