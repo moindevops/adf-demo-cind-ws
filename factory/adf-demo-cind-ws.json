@@ -1,0 +1,9 @@
+{
+	"name": "adf-demo-cind-ws",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d71e3af2-ed60-4f8b-80d0-44b1ce5f23bf",
+		"tenantId": "5f3e953c-0590-4236-9870-ef6940a9ef29"
+	}
+}
