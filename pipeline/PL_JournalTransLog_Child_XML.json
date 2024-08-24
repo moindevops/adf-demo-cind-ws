@@ -1,6 +1,11 @@
 {
 	"name": "PL_JournalTransLog_Child_XML",
 	"properties": {
+		"parameters": {
+			"folderName": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
