@@ -1,0 +1,22 @@
+{
+	"name": "DF_Source_XML",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "sourceXML"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"parameters{",
+				"     FileName as string",
+				"}",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> sourceXML"
+			]
+		}
+	}
+}
