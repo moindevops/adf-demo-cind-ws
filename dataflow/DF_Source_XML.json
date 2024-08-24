@@ -5,6 +5,10 @@
 		"typeProperties": {
 			"sources": [
 				{
+					"dataset": {
+						"referenceName": "DS_DFFile_Source",
+						"type": "DatasetReference"
+					},
 					"name": "sourceXML"
 				}
 			],
@@ -12,10 +16,14 @@
 			"transformations": [],
 			"scriptLines": [
 				"parameters{",
-				"     FileName as string",
+				"     FileName as string ($FileName)",
 				"}",
 				"source(allowSchemaDrift: true,",
-				"     validateSchema: false) ~> sourceXML"
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     validationMode: 'none',",
+				"     namespaces: true,",
+				"     wildcardPaths:[($FileName)]) ~> sourceXML"
 			]
 		}
 	}

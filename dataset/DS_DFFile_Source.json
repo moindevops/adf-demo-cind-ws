@@ -1,0 +1,26 @@
+{
+	"name": "DS_DFFile_Source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filePath": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Xml",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().filePath",
+					"type": "Expression"
+				},
+				"fileSystem": "journaltranslog"
+			}
+		}
+	}
+}
