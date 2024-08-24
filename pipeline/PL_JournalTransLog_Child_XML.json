@@ -20,7 +20,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderName": {
-								"value": "@pipeline().parameters.folderName",
+								"value": "@concat('Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'), pipeline().parameters.folderName)",
 								"type": "Expression"
 							}
 						}
