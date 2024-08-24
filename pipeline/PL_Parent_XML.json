@@ -53,7 +53,7 @@
 							"type": "ExecutePipeline",
 							"dependsOn": [],
 							"policy": {
-								"secureInput": true
+								"secureInput": false
 							},
 							"userProperties": [],
 							"typeProperties": {
@@ -61,13 +61,7 @@
 									"referenceName": "PL_Child_XML",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true,
-								"parameters": {
-									"GetFolderName": {
-										"value": "@item().name",
-										"type": "Expression"
-									}
-								}
+								"waitOnCompletion": true
 							}
 						}
 					]
