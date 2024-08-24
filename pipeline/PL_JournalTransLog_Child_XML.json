@@ -16,8 +16,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_Source_Data",
-						"type": "DatasetReference"
+						"referenceName": "DS_Child_Data",
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderName": {
+								"value": "@pipeline().parameters.folderName",
+								"type": "Expression"
+							}
+						}
 					},
 					"fieldList": [
 						"childItems"
