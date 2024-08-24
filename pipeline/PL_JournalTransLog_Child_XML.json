@@ -16,14 +16,8 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_Child_Data",
-						"type": "DatasetReference",
-						"parameters": {
-							"folderName": {
-								"value": "@concat('Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'), '/',pipeline().parameters.folderName)",
-								"type": "Expression"
-							}
-						}
+						"referenceName": "DS_Source_Data",
+						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"childItems"
