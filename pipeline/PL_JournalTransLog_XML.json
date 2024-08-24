@@ -17,13 +17,7 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "DS_Source_Data",
-						"type": "DatasetReference",
-						"parameters": {
-							"folderName": {
-								"value": "@concat('Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'))",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"childItems"
@@ -69,7 +63,7 @@
 								"waitOnCompletion": true,
 								"parameters": {
 									"folderName": {
-										"value": "@concat('journaltranslog','/','Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'), item().name)",
+										"value": "@item().name",
 										"type": "Expression"
 									}
 								}
