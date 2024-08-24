@@ -1,0 +1,11 @@
+{
+	"name": "PL_Child_XML",
+	"properties": {
+		"parameters": {
+			"GetFolderName": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
