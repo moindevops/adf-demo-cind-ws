@@ -5,17 +5,15 @@
 			"referenceName": "LS_ADLS",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"SubFolderName": {
-				"type": "string",
-				"defaultValue": "@concat('Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'))"
-			}
-		},
 		"annotations": [],
 		"type": "Xml",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@concat('Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'))",
+					"type": "Expression"
+				},
 				"fileSystem": "journaltranslog"
 			}
 		}
