@@ -1,5 +1,5 @@
 {
-	"name": "PL_JournalTransLog_XML",
+	"name": "PL_Parent_XML",
 	"properties": {
 		"activities": [
 			{
@@ -17,7 +17,13 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "DS_Source_Data",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"SubFolderName": {
+								"value": "@concat('Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'))",
+								"type": "Expression"
+							}
+						}
 					},
 					"fieldList": [
 						"childItems"
