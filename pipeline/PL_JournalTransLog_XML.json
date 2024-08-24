@@ -27,50 +27,6 @@
 						"enablePartitionDiscovery": false
 					}
 				}
-			},
-			{
-				"name": "Loop the Folders",
-				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "Get Folder Metadata",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@activity('Get Folder Metadata').output.childItems",
-						"type": "Expression"
-					},
-					"isSequential": true,
-					"activities": [
-						{
-							"name": "Execute Child Pipeline",
-							"type": "ExecutePipeline",
-							"dependsOn": [],
-							"policy": {
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"pipeline": {
-									"referenceName": "PL_JournalTransLog_Child_XML",
-									"type": "PipelineReference"
-								},
-								"waitOnCompletion": true,
-								"parameters": {
-									"subFolderName": {
-										"value": "@item().name",
-										"type": "Expression"
-									}
-								}
-							}
-						}
-					]
-				}
 			}
 		],
 		"annotations": []
