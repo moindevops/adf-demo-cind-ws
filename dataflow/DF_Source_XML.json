@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DS_DFFile_Source",
+						"referenceName": "DS_Parent_Source",
 						"type": "DatasetReference"
 					},
 					"name": "sourceXML"
@@ -16,14 +16,14 @@
 			"transformations": [],
 			"scriptLines": [
 				"parameters{",
-				"     FileName as string ($FileName)",
+				"     FileName as string",
 				"}",
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     validationMode: 'none',",
 				"     namespaces: true,",
-				"     wildcardPaths:['*.xml']) ~> sourceXML"
+				"     wildcardPaths:[($FileName)]) ~> sourceXML"
 			]
 		}
 	}
