@@ -1,6 +1,40 @@
 {
 	"name": "PL_JournalTransLog_Child_XML",
 	"properties": {
+		"activities": [
+			{
+				"name": "Get File Metadata",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "DS_Child_Data",
+						"type": "DatasetReference",
+						"parameters": {
+							"folderName": {
+								"value": "@concat('Commander','/','Source','/',formatDateTime(utcnow(),'yyyy-MM-dd'), '/',pipeline().parameters.folderName)",
+								"type": "Expression"
+							}
+						}
+					},
+					"fieldList": [
+						"childItems"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"enablePartitionDiscovery": false
+					}
+				}
+			}
+		],
 		"parameters": {
 			"folderName": {
 				"type": "string"
